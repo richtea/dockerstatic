@@ -1,0 +1,11 @@
+version: '3'
+services:
+  static-app:
+    image: staticapp:debug
+    build: .
+    ports:
+      - '8080:80'
+      - "8081:443"
+    volumes:
+      - ../site:/usr/share/nginx/html:ro
+      #- ./conf:/usr/local/nginx/conf:ro
