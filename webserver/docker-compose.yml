@@ -4,8 +4,9 @@ services:
     image: staticapp:debug
     build: .
     ports:
-      - '8080:80'
-      - "8081:443"
+      - '80:80'
+      - "443:443"
     volumes:
       - ../site:/usr/share/nginx/html:ro
-      #- ./conf:/usr/local/nginx/conf:ro
+      - ./conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/usr/local/nginx/certs:ro
